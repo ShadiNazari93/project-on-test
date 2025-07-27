@@ -1,6 +1,7 @@
 class InsufficientFundsError(Exception):
     pass
 
+
 class Account:
     def __init__(self, account_number: str, balance: float = 0.0):
         self.account_number = account_number
@@ -9,7 +10,9 @@ class Account:
 
     def deposit(self, amount: float):
         if amount <= 0:
-            raise ValueError("Amount must be positive")
+            raise ValueError("Amount must be positive integer")
+        elif amount == str :
+            raise TypeError("Amount must be a number")
         self.balance += amount
         self.transactions.append(f"Deposit: +{amount}")
 
@@ -26,6 +29,7 @@ class Account:
         target_account.deposit(amount)
         self.transactions.append(f"Transfer to {target_account.account_number}: -{amount}")
         target_account.transactions.append(f"Transfer from {self.account_number}: +{amount}")
+
 
 class Bank:
     def __init__(self):

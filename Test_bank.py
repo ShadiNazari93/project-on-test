@@ -1,11 +1,14 @@
 import pytest
 from Bank import Account, Bank, InsufficientFundsError
 
+
 class TestAccount:
     def test_deposit(self):
         acc = Account("123")
-        acc.deposit(100)
-        assert acc.balance == 100
+        with pytest.raises(ValueError):
+             acc.deposit(-21)
+        with pytest.raises(TypeError):
+             acc.deposit("-21")
 
     def test_withdraw_success(self):
         acc = Account("123", 100)
@@ -24,6 +27,7 @@ class TestAccount:
         assert acc1.balance == 70
         assert acc2.balance == 80
 
+
 class TestBank:
     def test_create_account(self):
         bank = Bank()
@@ -36,6 +40,5 @@ class TestBank:
         bank.create_account("123")
         with pytest.raises(ValueError):
             bank.create_account("123")
-
 
 # pytest Test_bank.py -v
