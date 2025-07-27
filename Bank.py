@@ -2,7 +2,7 @@ class InsufficientFundsError(Exception):
     pass
 
 class Account:
-    def init(self, account_number: str, balance: float = 0.0):
+    def __init__(self, account_number: str, balance: float = 0.0):
         self.account_number = account_number
         self.balance = balance
         self.transactions = []
@@ -28,7 +28,7 @@ class Account:
         target_account.transactions.append(f"Transfer from {self.account_number}: +{amount}")
 
 class Bank:
-    def init(self):
+    def __init__(self):
         self.accounts = {}
 
     def create_account(self, account_number: str, initial_balance: float = 0.0):

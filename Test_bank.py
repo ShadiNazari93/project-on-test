@@ -1,5 +1,5 @@
 import pytest
-from bank import Account, Bank, InsufficientFundsError
+from Bank import Account, Bank, InsufficientFundsError
 
 class TestAccount:
     def test_deposit(self):
@@ -37,9 +37,5 @@ class TestBank:
         with pytest.raises(ValueError):
             bank.create_account("123")
 
-# pytest==7.4.0
-# pytest-cov==4.1.0
-#
-# pip install -r requirements.txt
-# pytest test_bank.py -
-#
+
+# pytest Test_bank.py -v
