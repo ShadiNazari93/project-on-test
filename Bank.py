@@ -11,7 +11,7 @@ class Account:
     def deposit(self, amount: float):
         if amount <= 0:
             raise ValueError("Amount must be positive integer")
-        elif amount == str :
+        if amount == str :
             raise TypeError("Amount must be a number")
         self.balance += amount
         self.transactions.append(f"Deposit: +{amount}")
@@ -21,6 +21,8 @@ class Account:
             raise ValueError("Amount must be positive")
         if amount > self.balance:
             raise InsufficientFundsError("Not enough funds")
+        if amount == str :
+            raise TypeError("Amount must be a number")
         self.balance -= amount
         self.transactions.append(f"Withdrawal: -{amount}")
 

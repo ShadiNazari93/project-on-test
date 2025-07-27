@@ -6,14 +6,20 @@ class TestAccount:
     def test_deposit(self):
         acc = Account("123")
         with pytest.raises(ValueError):
-             acc.deposit(-21)
+            acc.deposit(-21)
         with pytest.raises(TypeError):
-             acc.deposit("-21")
+            acc.deposit("-21")
 
     def test_withdraw_success(self):
         acc = Account("123", 100)
         acc.withdraw(50)
         assert acc.balance == 50
+        with pytest.raises(ValueError):
+            acc.withdraw(-21)
+        with pytest.raises(InsufficientFundsError):
+            acc.withdraw(155)
+        with pytest.raises(TypeError):
+            acc.withdraw("-21")
 
     def test_withdraw_insufficient_funds(self):
         acc = Account("123", 50)
