@@ -205,3 +205,23 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+#git
+create  .gitignore
+# فایل‌های پایتون
+pycache/
+*.pyc
+
+# فایل‌های مجازی
+env/
+venv/
+
+# فایل‌های IDE
+.vscode/
+.idea/
+
+# فایل‌های خروجی
+*.log
+*.db
+
+# فایل‌های حساس
+.env
